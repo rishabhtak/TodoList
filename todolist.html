@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <h1>To Do List</h1>
+    <input type="text" id="input1">
+    <input type="button" onclick="myFunction(input1)" value="Submit" />
+
+    <table id="myList">
+
+    </table>
+
+    <p id="demo"></p>
+
+
+    <script>
+        function myFunction(obj) {
+            if (obj.value !== "") {
+                var tbl = document.createElement("tr");
+                var check = document.createElement("input");
+                check.setAttribute("type", "checkbox");
+                check.onchange = toggleTask;
+                tbl.appendChild(check);
+                var lbl = document.createElement("label");
+                lbl.append(document.createTextNode(obj.value));
+                tbl.appendChild(lbl);
+                document.getElementById("myList").appendChild(tbl);
+
+
+                obj.value = "";
+                document.getElementById(obj.id).focus();
+            }
+
+            function toggleTask() {
+
+                if (this.checked) {
+                    tbl.style.textDecoration = 'line-through';
+
+                } else {
+                    tbl.style.textDecoration = 'none';
+                }
+            }
+
+        }
+    </script>
+</body>
+
+</html>
